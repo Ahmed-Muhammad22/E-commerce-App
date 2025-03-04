@@ -40,7 +40,7 @@ export const appConfig: ApplicationConfig = {
       routes,
       withInMemoryScrolling({ scrollPositionRestoration: 'top' }),
       withViewTransitions(),
-      withHashLocation()
+    
       
     ),
     provideClientHydration(withEventReplay()),
