@@ -13,7 +13,7 @@ export class OrderService {
   myToken: any = localStorage.getItem('userToken');
   checkOutSession(id: string, data: object): Observable<any> {
     return this.httpClient.post(
-      `${environment.baseUrl}api/v1/orders/checkout-session/${id}?url=https://e-commerce-app-8545.vercel.app/${this.encodedChar}`,
+      `${environment.baseUrl}api/v1/orders/checkout-session/${id}?url=https://e-commerce-app-brtg.vercel.app/${this.encodedChar}`,
       {
         shippingAddress: data,
       },
