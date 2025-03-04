@@ -8,10 +8,12 @@ import { environment } from '../../environments/environment';
 })
 export class OrderService {
   constructor(private httpClient: HttpClient) {}
+  specialChar: string = '#';
+  encodedChar: string = encodeURIComponent(this.specialChar);
   myToken: any = localStorage.getItem('userToken');
   checkOutSession(id: string, data: object): Observable<any> {
     return this.httpClient.post(
-      `${environment.baseUrl}api/v1/orders/checkout-session/${id}?url=http://localhost:4200`,
+      `${environment.baseUrl}api/v1/orders/checkout-session/${id}?url=https://e-commerce-app-neon-three.vercel.app//${this.encodedChar}`,
       {
         shippingAddress: data,
       },
