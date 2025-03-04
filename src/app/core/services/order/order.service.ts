@@ -24,7 +24,19 @@ export class OrderService {
       }
     );
   }
-
+  getCashOrders(id: string, data: object): Observable<any> {
+    return this.httpClient.post(
+      `${environment.baseUrl}api/v1/orders/${id}`,
+      {
+        shippingAddress: data,
+      },
+      {
+        headers: {
+          token: this.myToken,
+        },
+      }
+    );
+  }
   getUserOrders(id: string): Observable<any> {
     return this.httpClient.get(
       `${environment.baseUrl}api/v1/orders/user/${id}`

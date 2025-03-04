@@ -71,9 +71,10 @@ export class CheckoutComponent implements OnInit {
     console.log(this.checkOutForm.value);
 
     this.orderService
-      .checkOutSession(this.cartId, this.checkOutForm.value)
+      .getCashOrders(this.cartId, this.checkOutForm.value)
       .subscribe({
         next: (res) => {
+          console.log(res);
           if (res.status === 'success') {
             Swal.fire(
               'Success',
