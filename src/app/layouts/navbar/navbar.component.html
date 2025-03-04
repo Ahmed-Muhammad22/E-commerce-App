@@ -37,8 +37,8 @@
       }
       <ul class="flex items-center justify-center ms-auto text-white capitalize cursor-pointer">
 
-        <li>
-          <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+        <li class="relative">
+          <button (click)="toggleChange(dropdownLang)"
             class="flex items-center justify-between w-full py-2 px-3 text-white rounded-sm   md:border-0  md:p-0 md:w-auto">{{'navbar.lang'
             | translate}}
             <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -47,8 +47,8 @@
                 d="m1 1 4 4 4-4" />
             </svg></button>
           <!-- Dropdown menu -->
-          <div id="dropdownNavbar"
-            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+          <div #dropdownLang
+            class="z-10 hidden absolute top-8 right-3 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
               <li [class.hidden]="translateService.currentLang ==='en'">
                 <a (click)="change('en')" role="button" class="block px-4 py-2 hover:text-[#09c]">EN</a>
@@ -94,13 +94,13 @@
           <a class=" py-2 px-2 rounded-sm "><i class="fab fa-instagram"></i></a>
         </li>
         <li class="relative">
-          <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar1"
+          <button (click)="toggleChangeOrder(dropDownOrder)"
             class="flex items-center justify-between w-full py-2 px-3 text-white rounded-sm md:border-0 md:p-0 md:w-auto">
             <i class="fas fa-user mx-3 text-2xl"></i>
           </button>
 
-          <div id="dropdownNavbar1"
-            class="absolute right-0 z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-md w-44 dark:bg-gray-700 dark:divide-gray-600">
+          <div #dropDownOrder
+            class="absolute top-8 right-3 z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-md w-44 dark:bg-gray-700 dark:divide-gray-600">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
               <li>
                 <a role="button" class="block px-4 py-2 hover:text-[#09c]" routerLink="/allorders"

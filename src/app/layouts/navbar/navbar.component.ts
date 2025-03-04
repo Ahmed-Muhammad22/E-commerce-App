@@ -43,4 +43,10 @@ export class NavbarComponent implements OnInit {
   change(lang: string): void {
     this.myTranslateService.changeTranslateLang(lang);
   }
+  toggleChange(list: HTMLElement): void {
+    list.classList.toggle('hidden');
+  }
+  toggleChangeOrder(list: HTMLElement): void {
+    list.classList.toggle('hidden');
+  }
 }
