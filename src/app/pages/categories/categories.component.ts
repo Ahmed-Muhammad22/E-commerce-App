@@ -21,9 +21,6 @@ export class CategoriesComponent {
         console.log(res.data);
         this.categories = res.data;
       },
-      error: (err) => {
-        console.log(err);
-      },
     });
   }
 }

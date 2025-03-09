@@ -26,9 +26,6 @@ export class BrandsdetailsComponent implements OnInit {
       next: (res) => {
         this.detailsBrand = res.data;
       },
-      error: (err) => {
-        console.log(err);
-      },
     });
   }
 }

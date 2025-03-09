@@ -26,18 +26,12 @@ export class CategoriesdetailsComponent implements OnInit {
       next: (res) => {
         this.detailsCategory = res.data;
       },
-      error: (err) => {
-        console.log(err);
-      },
     });
     this._CategoriesService
       .getAllSubCategoriesOnCategory(this.idCategory)
       .subscribe({
         next: (res) => {
           this.subCategoryData = res.data;
-        },
-        error: (err) => {
-          console.log(err);
         },
       });
   }

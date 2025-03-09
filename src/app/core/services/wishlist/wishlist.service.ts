@@ -12,7 +12,7 @@ export class WishlistService {
 
   constructor(private httpClient: HttpClient) {}
 
-  addProductToWishlist(id: string): Observable<any> {
+  addProductToWishlist(id: string | null): Observable<any> {
     return this.httpClient.post(
       `${environment.baseUrl}api/v1/wishlist`,
       { productId: id },

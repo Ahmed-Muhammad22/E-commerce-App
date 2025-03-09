@@ -1,5 +1,5 @@
 @if (cartDetails.totalCartPrice) {
-<Section class="bg-slate-600 mx-auto w-3/4 p-4 rounded shadow border">
+<Section class="bg-slate-600 mx-auto sm:w-full md:w-full lg:w-3/4 p-4 rounded shadow border">
 
   <h1 class="text-center text-white text-4xl">{{'cart.Shop Cart' |translate}}</h1>
   <h3 class="text-white translate-y-9">{{'cart.Total Cart Price' | translate}}: {{cartDetails.totalCartPrice | currency:
@@ -10,11 +10,11 @@
     class="bg-[#09c] text-center text-sm text-white rounded px-5 py-2 ms-auto block hover:bg-blue-800 hover:cursor-pointer">
     {{'cart.Clear Cart' | translate}}</button>
   @for (prod of cartDetails.products; track prod.product._id) {
-  <div class="grid md:grid-cols-[10%_minmax(0,1fr)] gap-4 border-b border-black">
+  <div class="grid  sm:grid-cols-[10%_minmax(0,1fr)] gap-4 border-b border-black">
     <div>
       <img [src]="prod.product.imageCover" class="w-full h-[100px] object-contain my-2" [alt]="prod.product.title">
     </div>
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center sm:pt-0">
       <div>
         <h3 class="text-white">{{prod.product.title}} </h3>
         <h4 class="text-white">{{'cart.Price' | translate}}:{{prod.price | currency: "EGP" }} </h4>

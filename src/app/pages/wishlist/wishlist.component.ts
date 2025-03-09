@@ -31,9 +31,6 @@ export class WishlistComponent {
         this.wishlist = res.data;
         this.wishlistService.wishlistNumber.set(res.data.length);
       },
-      error: (err) => {
-        console.log(err);
-      },
     });
   }
 
@@ -43,9 +40,6 @@ export class WishlistComponent {
         console.log(res);
         this.toastrService.success(res.message, 'FreshCart');
         this.cartService.cartNumber.set(res.numOfCartItems);
-      },
-      error: (err) => {
-        console.log(err);
       },
     });
   }
@@ -64,13 +58,6 @@ export class WishlistComponent {
             'FreshCart'
           );
         }
-      },
-      error: (err) => {
-        console.error('API Error:', err);
-        this.toastrService.error(
-          err.error.message || 'Something went wrong!',
-          'FreshCart'
-        );
       },
     });
   }

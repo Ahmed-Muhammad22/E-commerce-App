@@ -70,9 +70,6 @@ export class DetailsComponent implements OnInit {
         this.toastrService.success(res.message, 'FreshCart');
          this.cartService.cartNumber.set(res.numOfCartItems);
       },
-      error: (err) => {
-        console.log(err);
-      },
     });
   }
 }

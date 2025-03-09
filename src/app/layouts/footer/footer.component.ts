@@ -1,10 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-footer',
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, ReactiveFormsModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
-export class FooterComponent {}
+export class FooterComponent {
+  private readonly toastrService = inject(ToastrService);
+  footerForm: FormGroup = new FormGroup({
+    email: new FormControl(null),
+  });
+  shareApp(): void {
+    if (this.footerForm.valid) {
+      console.log(this.footerForm.value);
+      this.footerForm.reset();
+      this.toastrService.success(
+        'The sending process was successful.',
+        'FreshCart'
+      );
+    } else {
+      this.toastrService.error(
+        'Please enter a value before sending.',
+        'FreshCart'
+      );
+    }
+  }
+}

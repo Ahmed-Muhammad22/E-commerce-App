@@ -35,9 +35,7 @@ export class ProductsComponent {
         console.log(res.data);
         this.products = res.data;
       },
-      error: (err) => {
-        console.log(err);
-      },
+
     });
   }
 
@@ -48,9 +46,6 @@ export class ProductsComponent {
         this.toastrService.success(res.message, 'FreshCart');
         this.cartService.cartNumber.set(res.numOfCartItems);
       },
-      error: (err) => {
-        console.log(err);
-      },
     });
   }
   addProductToWish(id: string): void {
@@ -60,9 +55,7 @@ export class ProductsComponent {
         this.wishlistService.wishlistNumber.set(res.data.length);
         this.toastrService.success(res.message, 'FreshCart');
       },
-      error: (err) => {
-        console.log(err);
-      },
+     
     });
   }
 }

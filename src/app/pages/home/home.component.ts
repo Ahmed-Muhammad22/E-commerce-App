@@ -1,8 +1,9 @@
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, isPlatformBrowser } from '@angular/common';
 import {
   Component,
   inject,
   OnInit,
+  PLATFORM_ID,
   signal,
   WritableSignal,
 } from '@angular/core';
@@ -43,8 +44,11 @@ export class HomeComponent implements OnInit {
   private readonly wishlistService = inject(WishlistService);
   term: string = '';
   star: number = 0;
+
+  platId = inject(PLATFORM_ID);
   products: WritableSignal<IProduct[]> = signal([]);
   categories: WritableSignal<ICategory[]> = signal([]);
+  cartId: string = '';
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -119,15 +123,13 @@ export class HomeComponent implements OnInit {
   addCardItem(id: string): void {
     this.cartService.addProductToCart(id).subscribe({
       next: (res) => {
-        console.log(res.data);
+        console.log(res);
         this.cartService.cartNumber.set(res.numOfCartItems);
         this.toastrService.success(res.message, 'FreshCart');
       },
-      error: (err) => {
-        console.log(err);
-      },
     });
   }
+
   addProductToWish(id: string): void {
     this.wishlistService.addProductToWishlist(id).subscribe({
       next: (res) => {

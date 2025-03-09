@@ -27,17 +27,13 @@ export class NavbarComponent implements OnInit {
         console.log(res.data);
         this.cartService.cartNumber.set(res.numOfCartItems);
       },
-      error: (err) => {
-        console.log(err);
-      },
+
     });
     this.wishlistService.getLoggedUserWishlist().subscribe({
       next: (res) => {
         this.wishlistService.wishlistNumber.set(res.data.length);
       },
-      error: (err) => {
-        console.log(err);
-      },
+      
     });
   }
   change(lang: string): void {
@@ -48,5 +44,9 @@ export class NavbarComponent implements OnInit {
   }
   toggleChangeOrder(list: HTMLElement): void {
     list.classList.toggle('hidden');
+  }
+
+  toggleNavbar(ulList: HTMLElement) {
+    ulList.classList.toggle('hidden');
   }
 }
